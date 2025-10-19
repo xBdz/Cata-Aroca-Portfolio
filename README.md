@@ -1,4 +1,4 @@
-# Catalina Aroca - Fashion Portfolio
+# Catalina Aroca - Portfolio
 
 Portfolio editorial minimalista para estilista de moda Catalina Aroca. Diseño contemporáneo con animaciones sutiles, búsqueda de pistas interactiva y galería secreta desbloqueable.
 
@@ -75,9 +75,36 @@ npm run preview
 
 ## 📦 Deploy en Vercel
 
-1. Conecta tu repositorio a Vercel
-2. Vercel detectará automáticamente Vite
-3. Deploy automático en cada push
+### Opción 1: Deployment desde repositorio Git
+
+1. Sube el proyecto a GitHub/GitLab/Bitbucket
+2. Importa el repositorio en [Vercel](https://vercel.com)
+3. Vercel detectará automáticamente la configuración de Vite
+4. Click en "Deploy"
+5. Deployments automáticos en cada push a la rama principal
+
+### Opción 2: Deployment con Vercel CLI
+
+```bash
+# Instalar Vercel CLI
+npm i -g vercel
+
+# Deploy desde la raíz del proyecto
+vercel
+
+# Para producción
+vercel --prod
+```
+
+### Variables de entorno (si necesarias)
+
+Si en el futuro integras un backend o APIs, crea un archivo `.env.local`:
+
+```bash
+VITE_API_URL=tu_api_url
+```
+
+Y agrégalas en Vercel Dashboard → Project Settings → Environment Variables
 
 ## 🎨 Personalización del diseño
 
@@ -117,7 +144,3 @@ Actualiza los links en `src/components/Footer.tsx`:
 ## 📄 Licencia
 
 Todos los derechos reservados © 2025 Catalina Aroca
-
----
-
-Built with ❤️ using Lovable

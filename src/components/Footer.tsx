@@ -1,58 +1,109 @@
-import { Instagram } from "lucide-react";
+import { Instagram, Linkedin, Mail } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
-  return (
-    <footer className="py-12 px-6 bg-accent text-accent-foreground">
-      <div className="container mx-auto max-w-6xl">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-sm font-sans editorial-spacing">
-            © {new Date().getFullYear()} Catalina Aroca. Todos los derechos reservados.
-          </p>
+  const { t } = useLanguage();
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
-          <div className="flex items-center gap-6">
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="opacity-70 hover:opacity-100 transition-opacity"
-              aria-label="Instagram"
-            >
-              <Instagram size={20} />
-            </a>
-            <a
-              href="https://x.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="opacity-70 hover:opacity-100 transition-opacity"
-              aria-label="X (Twitter)"
-            >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
+  return (
+    <footer className="py-16 px-6 bg-foreground text-background border-t border-background/10">
+      <div className="container mx-auto max-w-7xl">
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+          {/* Brand */}
+          <div>
+            <h3 className="text-3xl font-serif font-light mb-4 tracking-wider">
+              CATALINA AROCA
+            </h3>
+            <p className="text-sm text-background/70 font-sans leading-relaxed">
+              Estilismo editorial • Producción de moda • Asesoría creativa
+            </p>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-xs uppercase tracking-widest font-sans mb-6 text-background/60">
+              Navegación
+            </h4>
+            <nav className="space-y-3">
+              <button
+                onClick={() => scrollToSection("portfolio")}
+                className="block text-sm font-sans text-background/80 hover:text-background transition-colors"
               >
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-              </svg>
-            </a>
-            <a
-              href="https://tiktok.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="opacity-70 hover:opacity-100 transition-opacity"
-              aria-label="TikTok"
-            >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
+                Portfolio
+              </button>
+              <button
+                onClick={() => scrollToSection("libros-tendencia")}
+                className="block text-sm font-sans text-background/80 hover:text-background transition-colors"
               >
-                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
-              </svg>
-            </a>
+                Libros de Tendencia
+              </button>
+              <button
+                onClick={() => scrollToSection("fashion-films")}
+                className="block text-sm font-sans text-background/80 hover:text-background transition-colors"
+              >
+                Fashion Films
+              </button>
+              <button
+                onClick={() => scrollToSection("about")}
+                className="block text-sm font-sans text-background/80 hover:text-background transition-colors"
+              >
+                Sobre mí
+              </button>
+            </nav>
+          </div>
+
+          {/* Contact & Social */}
+          <div>
+            <h4 className="text-xs uppercase tracking-widest font-sans mb-6 text-background/60">
+              Contacto
+            </h4>
+            <div className="space-y-4 mb-6">
+              <a 
+                href="mailto:catalina@aroca.com" 
+                className="flex items-center gap-2 text-sm font-sans text-background/80 hover:text-background transition-colors group"
+              >
+                <Mail className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                catalina@aroca.com
+              </a>
+            </div>
+            <div className="flex items-center gap-4">
+              <a
+                href="https://instagram.com/catalinaaroca"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-background/70 hover:text-background transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram size={20} />
+              </a>
+              <a
+                href="https://linkedin.com/in/catalinaaroca"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-background/70 hover:text-background transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={20} />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-background/10">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-xs font-sans text-background/60 tracking-wide">
+              © {new Date().getFullYear()} Catalina Aroca. {t("footer.rights")}.
+            </p>
+            <p className="text-xs font-sans text-background/60 tracking-wide">
+              {t("footer.location")}
+            </p>
           </div>
         </div>
       </div>
