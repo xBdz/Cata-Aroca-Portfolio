@@ -13,7 +13,7 @@ const SecretHuntSection = () => {
 
   return (
     <>
-      <section id="secret-hunt" className="py-32 px-6 bg-gradient-to-b from-primary/10 to-background relative overflow-hidden">
+      <section id="secret-hunt" className="py-20 px-6 bg-gradient-to-b from-primary/10 to-background relative overflow-hidden">
         {/* Background decorativo */}
         <div className="absolute inset-0 opacity-5">
           <motion.div
@@ -149,30 +149,32 @@ const SecretHuntSection = () => {
               </div>
 
               {/* Progress Dots */}
-              <div className="flex gap-4 mb-8">
-                {[0, 1, 2].map((i) => (
-                  <motion.div
-                    key={i}
-                    className="flex-1"
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ duration: 0.5, delay: i * 0.1 }}
-                  >
-                    <div className="h-2 bg-foreground/10 rounded-full overflow-hidden">
-                      <motion.div
-                        className="h-full bg-foreground"
-                        initial={{ width: "0%" }}
-                        animate={{
-                          width: foundClues.length > i ? "100%" : "0%",
-                        }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                      />
-                    </div>
-                    <p className="text-sm text-secondary/60 font-sans">
-                      {t("secret.found")}: {foundClues.length}/3
-                    </p>
-                  </motion.div>
-                ))}
+              <div className="mb-8">
+                <div className="flex gap-4 mb-3">
+                  {[0, 1, 2].map((i) => (
+                    <motion.div
+                      key={i}
+                      className="flex-1"
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{ duration: 0.5, delay: i * 0.1 }}
+                    >
+                      <div className="h-2 bg-foreground/10 rounded-full overflow-hidden">
+                        <motion.div
+                          className="h-full bg-foreground"
+                          initial={{ width: "0%" }}
+                          animate={{
+                            width: foundClues.length > i ? "100%" : "0%",
+                          }}
+                          transition={{ duration: 0.6, delay: 0.2 }}
+                        />
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+                <p className="text-sm text-secondary/60 font-sans text-center">
+                  {t("secret.found")}: {foundClues.length}/3
+                </p>
               </div>
 
               {/* Content */}
@@ -219,7 +221,7 @@ const SecretHuntSection = () => {
                         ¿Cómo funciona?
                       </h3>
                       <p className="text-secondary font-sans text-sm md:text-base leading-relaxed">
-                        Explora las diferentes secciones del portfolio y busca los símbolos sutiles escondidos. Cada vez que encuentres uno, se desbloqueará una pista. Encuentra las 3 pistas para revelar la galería secreta.
+                        Explora las diferentes secciones del portfolio y busca los símbolos sutiles escondidos. Encuentra las 3 pistas para revelar la galería secreta.
                       </p>
                     </div>
 
@@ -256,7 +258,7 @@ const SecretHuntSection = () => {
                           Pista
                         </p>
                         <p className="text-sm font-sans text-foreground/80 leading-relaxed">
-                          Los símbolos son muy sutiles y aparecen con baja opacidad. Pasa el cursor por las esquinas de las secciones principales para descubrirlos.
+                          Los símbolos son iguales, pero muy sutiles y aparecen con baja opacidad. Pasa el cursor por las esquinas de las secciones principales para descubrirlos. Extra: revisa bien la sección principal y mi biografía.
                         </p>
                       </div>
                     </div>

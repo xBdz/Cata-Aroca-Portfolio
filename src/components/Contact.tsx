@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Instagram, Linkedin } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { toast } from "sonner";
 
 const Contact = () => {
   const { t } = useLanguage();
@@ -24,7 +25,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-32 px-6 bg-card">
+    <section id="contact" className="py-20 px-6 bg-card">
       <div className="container mx-auto max-w-6xl">
         {/* Header */}
         <motion.div 
@@ -157,10 +158,10 @@ const Contact = () => {
             {/* Disponibilidad */}
             <div className="pt-8 border-t border-foreground/10">
               <h3 className="text-sm uppercase tracking-widest font-sans text-secondary/60 mb-2">
-                {t("contact.location")}
+                Buenos Aires, Argentina
               </h3>
               <p className="text-lg md:text-xl font-sans text-foreground">
-                {t("contact.location")} Actualmente disponible para proyectos de estilismo editorial, producción de moda y asesoría creativa.
+                Actualmente disponible para proyectos de estilismo editorial, producción de moda y asesoría creativa.
               </p>
             </div>
           </motion.div>

@@ -1,4 +1,4 @@
-import aboutPortrait from "@/assets/Estilismo/56.png"; // TODO: Reemplazar con imagen de About cuando esté disponible
+import aboutPortrait from "@/assets/Portrait.png"; 
 import { useClueHunt } from "@/hooks/useClueHunt";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
@@ -9,7 +9,7 @@ const About = () => {
   const { foundClues, findClue } = useClueHunt();
 
   return (
-    <section id="about" className="py-32 px-6 bg-card">
+    <section id="about" className="py-20 px-6 bg-card relative overflow-hidden">
       <div className="container mx-auto max-w-7xl">
         {/* Título principal */}
         <motion.div
@@ -45,10 +45,10 @@ const About = () => {
             {!foundClues.includes("about") && (
               <motion.button
                 onClick={() => findClue("about")}
-                className="absolute top-4 right-4 focus:outline-none group cursor-pointer"
+                className="absolute top-4 right-10 focus:outline-none group cursor-pointer"
                 aria-label="Símbolo oculto"
                 animate={{
-                  opacity: [0.4, 0.7, 0.4],
+                  opacity: [0.6, 0.85, 0.6],
                 }}
                 transition={{
                   duration: 1.9,
@@ -64,7 +64,7 @@ const About = () => {
                   <img
                     src={logoSymbol}
                     alt="Hidden symbol"
-                    className="relative w-8 h-8 opacity-60 brightness-110 saturate-150"
+                    className="relative w-8 h-8 opacity-75 brightness-110 saturate-150"
                     style={{ filter: 'hue-rotate(300deg)' }}
                   />
                 </div>

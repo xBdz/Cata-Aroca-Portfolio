@@ -2,28 +2,35 @@ import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-// Videos de ejemplo de YouTube - REEMPLAZAR con los links reales
+// Videos de Fashion Films
 const fashionFilms = [
   {
     id: 1,
-    title: "Fashion Film #1",
-    description: "Narrativa visual que explora la transformación de la identidad a través del vestuario y el movimiento.",
-    youtubeId: "dQw4w9WgXcQ", // REEMPLAZAR
-    thumbnail: `https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg`,
+    title: "Confesionario del futuro",
+    description: "El film aborda cómo, en un contexto de crisis social, económica y emocional, la Esperanza Cívica puede surgir como una fuerza transformadora frente a la rabia colectiva y la pérdida de sentido.",
+    youtubeId: "vkuuPaTl5KA",
+    thumbnail: `https://img.youtube.com/vi/vkuuPaTl5KA/maxresdefault.jpg`,
   },
   {
     id: 2,
-    title: "Fashion Film #2",
-    description: "Pieza audiovisual que fusiona alta costura con expresión contemporánea y storytelling emocional.",
-    youtubeId: "9bZkp7q19f0", // REEMPLAZAR
-    thumbnail: `https://img.youtube.com/vi/9bZkp7q19f0/maxresdefault.jpg`,
+    title: "Fashion Film Prune",
+    description: "En el proyecto plasmamos una experiencia inmersiva que fusiona la realidad física con la virtualidad digital, a su vez la idea es promover la marca.",
+    youtubeId: "Qp8sE9deup4",
+    thumbnail: `https://img.youtube.com/vi/Qp8sE9deup4/maxresdefault.jpg`,
   },
   {
     id: 3,
-    title: "Fashion Film #3",
-    description: "Exploración cinematográfica del vestuario como lenguaje visual y herramienta narrativa.",
-    youtubeId: "jNQXAC9IVRw", // REEMPLAZAR
-    thumbnail: `https://img.youtube.com/vi/jNQXAC9IVRw/maxresdefault.jpg`,
+    title: "Narrativa conceptual",
+    description: "En este film plasmamos a partir de un plano secuencia la relación entre una niña y su oso de peluche, la idea es reflejar como ese lazo se va desvirtuando a partir de estímulos que persuaden por parte del oso a la niña.",
+    youtubeId: "d9RZGL7Tx1g",
+    thumbnail: `https://img.youtube.com/vi/d9RZGL7Tx1g/maxresdefault.jpg`,
+  },
+  {
+    id: 4,
+    title: "Mirtha Legrand Film",
+    description: "Este video es un corto en el cual se presenta un almuerzo con la Mirtha actual junto a cuatro versiones de sí misma de diferentes épocas. Cada una compartirá su recorrido profesional vinculado al contexto del entretenimiento y los acontecimientos socioculturales del país en ese momento.",
+    youtubeId: "dJCfJwmVv5o",
+    thumbnail: `https://img.youtube.com/vi/dJCfJwmVv5o/maxresdefault.jpg`,
   },
 ];
 

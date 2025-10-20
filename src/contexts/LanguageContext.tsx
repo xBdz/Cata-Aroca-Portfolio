@@ -50,8 +50,8 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Secret Hunt
     "secret.title": "Búsqueda del Tesoro",
-    "secret.description": "Encuentra los 3 símbolos ocultos en el portfolio para desbloquear contenido exclusivo",
-    "secret.quote": "Los detalles hacen la perfección, y la perfección no es un detalle",
+    "secret.description": "Encuentra los 3 símbolos de la marca ocultos en el portfolio para desbloquear contenido exclusivo",
+    "secret.quote": '"La incertidumbre es una invitación a descubrir hasta dónde se puede llegar."',
     "secret.progress": "Progreso",
     "secret.found": "Encontradas",
     "secret.unlock": "Desbloquear Galería",

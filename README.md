@@ -1,146 +1,56 @@
 # Catalina Aroca - Portfolio
 
-Portfolio editorial minimalista para estilista de moda Catalina Aroca. Diseño contemporáneo con animaciones sutiles, búsqueda de pistas interactiva y galería secreta desbloqueable.
+Portfolio editorial minimalista para la estilista de moda Catalina Aroca. Un sitio web contemporáneo que presenta su trabajo creativo a través de un diseño inspirado en revistas de alta moda, con animaciones sutiles y una experiencia interactiva única.
 
-## 🎨 Características
+## 📖 Sobre el Proyecto
 
-- **Diseño minimalista editorial**: Inspirado en revistas de alta moda, con mucho aire, grillas limpias y jerarquía tipográfica marcada
-- **Paleta de colores**: Beige/crema cálido + negro editorial + grises suaves
-- **Tipografía**: Playfair Display (serif) para títulos, Inter (sans-serif) para cuerpo
-- **Animaciones sutiles**: Fade-in, hover effects, transiciones fluidas que respetan prefers-reduced-motion
-- **Totalmente responsive**: Mobile-first, optimizado para todos los tamaños de pantalla
-- **Accesible**: Navegación por teclado, alt texts, focus visible
+Este portfolio digital documenta el trabajo de Catalina Aroca como estilista de moda, presentando sus proyectos editoriales, investigaciones de tendencias, fashion films y propuestas conceptuales. El diseño minimalista pone el foco en las imágenes y el contenido, creando una experiencia visual que refleja la estética editorial del mundo de la moda.
 
-## 📂 Secciones
+## 📂 Estructura del Sitio
 
-1. **Hero/Inicio**: Presentación con logo grande y navegación minimalista
-2. **Portfolio**: 4 categorías - Estilismo, Libros de tendencia, Fashion films, Proyectos conceptuales
-3. **TIF**: Sección especial que integra elementos de todas las categorías
-4. **Sobre mí**: Biografía con imagen y texto editorial
-5. **Contacto**: Formulario UI (no envía emails, solo muestra toast)
-6. **Footer**: Redes sociales con íconos discretos
+### **Hero**
+Presentación inicial con logo y navegación minimalista. Incluye frases flotantes que contextualizan el trabajo de la estilista.
 
-## 🔍 Búsqueda de pistas (Easter egg)
+### **Portfolio**
+Cuatro categorías principales que organizan el trabajo:
+- **Estilismo Editorial**: Narrativas visuales para revistas, marcas y campañas
+- **Proyectos Conceptuales**: Exploraciones artísticas que desafían los límites de la moda
+- **Libros de Tendencia**: Investigación profunda de tendencias y forecasting estacional (descargables en PDF)
+- **Fashion Films**: Dirección creativa y estilismo para narrativas audiovisuales (videos de YouTube)
 
-El sitio incluye una pequeña "búsqueda del tesoro" interactiva:
+### **TIF (Trabajo Integrador Final)**
+Sección especial dedicada al proyecto de graduación, que integra elementos de todas las categorías del portfolio.
 
-- Busca los íconos 👁 ocultos en 3 secciones: Hero, Portfolio y Sobre mí
-- Cada pista encontrada se registra y persiste en localStorage
-- Al encontrar las 3 pistas, se desbloquea una galería secreta
-- Indicador en esquina inferior izquierda muestra progreso
-- La galería muestra imágenes experimentales y proyectos personales
+### **Búsqueda del Tesoro (Easter Egg)**
+Experiencia interactiva que invita a los visitantes a explorar el sitio de manera más profunda. Incluye explicación del funcionamiento y progreso visual.
 
-## 🖼️ Reemplazar imágenes
+### **Sobre Mí**
+Biografía de Catalina con retrato profesional, presentando su enfoque, formación y especialidades en el mundo de la moda.
 
-Todas las imágenes son placeholders generados. Para reemplazarlas con contenido real:
+### **Contacto**
+Formulario de contacto, información de email, redes sociales y disponibilidad para proyectos.
 
-1. Coloca tus imágenes en `src/assets/`
-2. Actualiza las importaciones en los componentes:
+## 🔍 Easter Egg: Búsqueda del Tesoro
 
-```typescript
-// En src/components/Portfolio.tsx
-import stylingImage from "@/assets/portfolio-styling.jpg";
-// Reemplaza con tu imagen
-import stylingImage from "@/assets/mi-imagen-estilismo.jpg";
-```
+El sitio incluye una experiencia interactiva oculta:
 
-### Imágenes requeridas:
+- **Objetivo**: Encontrar 3 símbolos de la marca escondidos en diferentes secciones
+- **Ubicaciones**: Hero (inicio), Portfolio y Sobre mí
+- **Mecánica**: Los símbolos aparecen con opacidad sutil en las esquinas de las secciones. Al hacer hover se vuelven más visibles
+- **Recompensa**: Al encontrar los 3 símbolos, se desbloquea una galería secreta con contenido exclusivo
+- **Persistencia**: El progreso se guarda en el navegador (localStorage)
+- **Indicador**: Muestra en la esquina inferior izquierda el progreso (X/3 encontradas)
 
-- `hero-image.jpg` (1920x1080) - Hero section background
-- `logo-aroca.png` - Logo "AROCA" (horizontal)
-- `logo-catalina.png` - Logo "CATALINA" (horizontal)
-- `logo-symbol.png` - Símbolo/marca personal
-- `portfolio-styling.jpg` (1024x1024) - Estilismo
-- `portfolio-trends.jpg` (1024x1024) - Libros de tendencia
-- `portfolio-films.jpg` (1024x1024) - Fashion films
-- `portfolio-conceptual.jpg` (1024x1024) - Proyectos conceptuales
-- `about-portrait.jpg` (800x1024) - Foto personal
-- `secret-gallery.jpg` (1920x1080) - Galería secreta
+La galería secreta contiene trabajo experimental y proyectos personales que solo los visitantes más atentos pueden descubrir.
 
-## 🚀 Desarrollo local
+## 🎨 Diseño
 
-```bash
-# Instalar dependencias
-npm install
+- **Estética**: Minimalista editorial, inspirado en revistas de alta moda
+- **Paleta**: Beige/crema cálido + negro editorial + grises suaves
+- **Tipografía**: Serif para títulos (elegante), Sans-serif para cuerpo (legible)
+- **Animaciones**: Sutiles y fluidas, respetando las preferencias de movimiento reducido
+- **Responsive**: Optimizado para todos los dispositivos, desde móviles hasta pantallas grandes
 
-# Servidor de desarrollo
-npm run dev
+---
 
-# Build para producción
-npm run build
-
-# Preview del build
-npm run preview
-```
-
-## 📦 Deploy en Vercel
-
-### Opción 1: Deployment desde repositorio Git
-
-1. Sube el proyecto a GitHub/GitLab/Bitbucket
-2. Importa el repositorio en [Vercel](https://vercel.com)
-3. Vercel detectará automáticamente la configuración de Vite
-4. Click en "Deploy"
-5. Deployments automáticos en cada push a la rama principal
-
-### Opción 2: Deployment con Vercel CLI
-
-```bash
-# Instalar Vercel CLI
-npm i -g vercel
-
-# Deploy desde la raíz del proyecto
-vercel
-
-# Para producción
-vercel --prod
-```
-
-### Variables de entorno (si necesarias)
-
-Si en el futuro integras un backend o APIs, crea un archivo `.env.local`:
-
-```bash
-VITE_API_URL=tu_api_url
-```
-
-Y agrégalas en Vercel Dashboard → Project Settings → Environment Variables
-
-## 🎨 Personalización del diseño
-
-El sistema de diseño está centralizado en:
-
-- `src/index.css` - Variables CSS (colores, espaciado, animaciones)
-- `tailwind.config.ts` - Configuración de Tailwind (fuentes, colores extendidos)
-
-Para cambiar la paleta de colores, edita las variables HSL en `src/index.css`:
-
-```css
-:root {
-  --primary: 35 30% 88%; /* Beige cálido */
-  --accent: 0 0% 10%; /* Negro editorial */
-  /* ... */
-}
-```
-
-## 📱 Redes sociales
-
-Actualiza los links en `src/components/Footer.tsx`:
-
-```typescript
-<a href="https://instagram.com/tu-usuario" ...>
-```
-
-## 🔧 Tecnologías
-
-- React 18
-- TypeScript
-- Vite
-- Tailwind CSS
-- shadcn/ui components
-- Lucide React icons
-- Sonner (toasts)
-
-## 📄 Licencia
-
-Todos los derechos reservados © 2025 Catalina Aroca
+**© 2025 Catalina Aroca - Todos los derechos reservados**

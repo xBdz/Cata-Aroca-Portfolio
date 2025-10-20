@@ -223,7 +223,7 @@ const Hero = () => {
             className="absolute bottom-8 right-8 focus:outline-none group cursor-pointer"
             aria-label="Símbolo oculto"
             animate={{
-              opacity: [0.4, 0.7, 0.4],
+              opacity: [0.6, 0.85, 0.6],
             }}
             transition={{
               duration: 2,
@@ -239,7 +239,7 @@ const Hero = () => {
               <img
                 src={logoSymbol}
                 alt="Hidden symbol"
-                className="relative w-8 h-8 opacity-60 brightness-110 saturate-150"
+                className="relative w-8 h-8 opacity-75 brightness-110 saturate-150"
                 style={{ filter: 'hue-rotate(20deg)' }}
               />
             </div>

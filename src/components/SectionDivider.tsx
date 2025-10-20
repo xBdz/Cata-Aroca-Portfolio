@@ -8,7 +8,7 @@ interface SectionDividerProps {
 const SectionDivider = ({ variant = "default" }: SectionDividerProps) => {
   if (variant === "symbol") {
     return (
-      <div className="relative py-12 overflow-hidden">
+      <div className="relative py-6 overflow-hidden">
         <div className="container mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -38,7 +38,7 @@ const SectionDivider = ({ variant = "default" }: SectionDividerProps) => {
 
   if (variant === "line") {
     return (
-      <div className="relative py-12 overflow-hidden">
+      <div className="relative py-6 overflow-hidden">
         <div className="container mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ scaleX: 0 }}
@@ -54,7 +54,7 @@ const SectionDivider = ({ variant = "default" }: SectionDividerProps) => {
 
   // Default: symbol with lines
   return (
-    <div className="relative py-12 overflow-hidden">
+    <div className="relative py-6 overflow-hidden">
       <div className="container mx-auto max-w-7xl px-6">
         <motion.div
           initial={{ opacity: 0 }}

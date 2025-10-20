@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
-import { Download, FileText, BookOpen } from "lucide-react";
+import { Download, FileText } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-// Portada temporal - puedes reemplazarla con una imagen específica para cada libro
-import portadaEstilismo from "@/assets/Estilismo/portada-estilismo.png";
+// Importar portadas de libros de tendencia
+import portadaAnzuelo from "@/assets/Libros de tendencia/Anzuelo-emocional-portada.png";
+import portadaIndustria from "@/assets/Libros de tendencia/La-industria-artesanal-portada.png";
+import portadaSegmento from "@/assets/Libros de tendencia/Segemento-preadolescente-portada.png";
 
 const trendBooks = [
   {
@@ -12,16 +14,16 @@ const trendBooks = [
     description: "Investigación sobre estrategias emocionales en la construcción de narrativas de moda y su impacto en el consumidor contemporáneo.",
     pdfPath: "/pdfs/Anzuelo-emocional.pdf",
     size: "10 MB",
-    coverImage: portadaEstilismo, // Reemplazar con imagen específica
+    coverImage: portadaAnzuelo,
     year: "2024",
   },
   {
     id: 2,
-    title: "La Industria Artesanal: Un Espacio para la Explotación",
+    title: "La Industria Artesanal",
     description: "Análisis crítico de las dinámicas laborales en la producción artesanal de moda y sus implicaciones éticas en la industria actual.",
     pdfPath: "/pdfs/La industria artesanal, un espacio para la explotación.pdf",
     size: "85 MB",
-    coverImage: portadaEstilismo, // Reemplazar con imagen específica
+    coverImage: portadaIndustria,
     year: "2024",
   },
   {
@@ -30,7 +32,7 @@ const trendBooks = [
     description: "Estudio de tendencias y comportamientos de consumo en el mercado preadolescente, explorando identidad y pertenencia a través de la moda.",
     pdfPath: "/pdfs/Segemento-preadolescente.pdf",
     size: "65 MB",
-    coverImage: portadaEstilismo, // Reemplazar con imagen específica
+    coverImage: portadaSegmento,
     year: "2024",
   },
 ];
@@ -48,7 +50,7 @@ const LibrosTendencia = () => {
   };
 
   return (
-    <section id="libros-tendencia" className="py-32 px-6 bg-background">
+    <section id="libros-tendencia" className="py-20 px-6 bg-background">
       <div className="container mx-auto max-w-7xl">
         {/* Header */}
         <motion.div
@@ -59,7 +61,6 @@ const LibrosTendencia = () => {
           className="mb-24"
         >
           <div className="flex items-center gap-4 mb-6">
-            <BookOpen className="w-10 h-10 text-secondary" strokeWidth={1} />
             <h2 className="text-6xl md:text-7xl lg:text-8xl font-serif font-light mb-8 editorial-spacing">
               {t("libros.title")}
             </h2>

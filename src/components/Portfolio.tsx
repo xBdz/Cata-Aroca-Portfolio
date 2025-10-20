@@ -8,8 +8,9 @@ import logoSymbol from "@/assets/Logo/logo-symbol.png";
 
 // Importar imágenes de portada
 import portadaEstilismo from "@/assets/Estilismo/portada-estilismo.png";
-import portadaFilms from "@/assets/Fashion Films/portada-films.png";
+import portadaFilms from "@/assets/Fashion Films/Films-Portada.png";
 import portadaProyectos from "@/assets/Proyectos conceptuales/portada-proyectos.png";
+import portadaTrends from "@/assets/Libros de tendencia/Libros-de-tendencia-portada.png";
 
 // Importar imágenes de Estilismo
 import est56 from "@/assets/Estilismo/56.png";
@@ -123,7 +124,7 @@ const portfolioCategories = [
   {
     id: "trends",
     title: "Libros de tendencia",
-    coverImage: portadaEstilismo, // Usar temporalmente, reemplazar después
+    coverImage: portadaTrends,
     description: "Investigación profunda de tendencias, paletas cromáticas y forecasting estacional. Análisis que anticipa el futuro de la moda.",
     isLibros: true, // Flag especial para esta sección
   },
@@ -162,7 +163,7 @@ const Portfolio = () => {
   };
 
   return (
-    <section id="portfolio" className="py-32 px-6 bg-background">
+    <section id="portfolio" className="py-20 px-6 bg-background">
       <div className="container mx-auto max-w-7xl">
         {/* Header */}
         <motion.div 
@@ -185,7 +186,7 @@ const Portfolio = () => {
               className="absolute top-4 right-4 focus:outline-none group cursor-pointer"
               aria-label="Símbolo oculto"
               animate={{
-                opacity: [0.4, 0.7, 0.4],
+                opacity: [0.6, 0.85, 0.6],
               }}
               transition={{
                 duration: 2.2,
@@ -201,7 +202,7 @@ const Portfolio = () => {
                 <img
                   src={logoSymbol}
                   alt="Hidden symbol"
-                  className="relative w-8 h-8 opacity-60 brightness-110 saturate-150"
+                  className="relative w-8 h-8 opacity-75 brightness-110 saturate-150"
                   style={{ filter: 'hue-rotate(180deg)' }}
                 />
               </div>
