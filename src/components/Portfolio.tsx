@@ -8,7 +8,7 @@ import logoSymbol from "@/assets/Logo/logo-symbol.png";
 
 // Importar imágenes de portada
 import portadaEstilismo from "@/assets/Estilismo/portada-estilismo.png";
-import portadaFilms from "@/assets/Fashion Films/Films-Portada.png";
+import portadaFilms from "@/assets/Fashion Films/Films-portada.png";
 import portadaProyectos from "@/assets/Proyectos conceptuales/portada-proyectos.png";
 import portadaTrends from "@/assets/Libros de tendencia/Libros-de-tendencia-portada.png";
 
