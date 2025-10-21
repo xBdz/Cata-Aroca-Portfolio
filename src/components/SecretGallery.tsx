@@ -1,32 +1,12 @@
-import { X, ChevronLeft, ChevronRight, Gem } from "lucide-react";
+import { X, Play } from "lucide-react";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
+import logoSymbolBorde from "@/assets/Logo/logo-simbolo-borde.png";
+import logoSymbolBordeClaro from "@/assets/Logo/logo-simbolo-borde-claro.png";
 
-// Importar imágenes secretas - Estilismo
-import est56 from "@/assets/Estilismo/56.png";
-import est57 from "@/assets/Estilismo/57.png";
-import est58 from "@/assets/Estilismo/58.png";
-import est59 from "@/assets/Estilismo/59.png";
-import est60 from "@/assets/Estilismo/60.png";
-import est61 from "@/assets/Estilismo/61.png";
-import est62 from "@/assets/Estilismo/62.png";
-import est63 from "@/assets/Estilismo/63.png";
-import est64 from "@/assets/Estilismo/64.png";
-import est65 from "@/assets/Estilismo/65.png";
-
-const secretImages = [
-  { src: est56, alt: "Estilismo exclusivo 1" },
-  { src: est57, alt: "Estilismo exclusivo 2" },
-  { src: est58, alt: "Estilismo exclusivo 3" },
-  { src: est59, alt: "Estilismo exclusivo 4" },
-  { src: est60, alt: "Estilismo exclusivo 5" },
-  { src: est61, alt: "Estilismo exclusivo 6" },
-  { src: est62, alt: "Estilismo exclusivo 7" },
-  { src: est63, alt: "Estilismo exclusivo 8" },
-  { src: est64, alt: "Estilismo exclusivo 9" },
-  { src: est65, alt: "Estilismo exclusivo 10" },
-];
+// ID del video de YouTube
+const YOUTUBE_VIDEO_ID = "4kASvKplfqc";
 
 interface SecretGalleryProps {
   onClose: () => void;
@@ -34,8 +14,7 @@ interface SecretGalleryProps {
 
 const SecretGallery = ({ onClose }: SecretGalleryProps) => {
   const { t } = useLanguage();
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [showGallery, setShowGallery] = useState(false);
+  const [showVideo, setShowVideo] = useState(false);
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -44,19 +23,9 @@ const SecretGallery = ({ onClose }: SecretGalleryProps) => {
     };
   }, []);
 
-  const goToPrevious = () => {
-    setCurrentIndex((prev) => (prev === 0 ? secretImages.length - 1 : prev - 1));
-  };
-
-  const goToNext = () => {
-    setCurrentIndex((prev) => (prev === secretImages.length - 1 ? 0 : prev + 1));
-  };
-
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "ArrowLeft") goToPrevious();
-      if (e.key === "ArrowRight") goToNext();
       if (e.key === "Escape") onClose();
     };
     window.addEventListener("keydown", handleKeyDown);
@@ -124,7 +93,7 @@ const SecretGallery = ({ onClose }: SecretGalleryProps) => {
 
       <div className="relative w-full h-full flex flex-col items-center justify-center p-6 md:p-12">
         <AnimatePresence mode="wait">
-          {!showGallery ? (
+          {!showVideo ? (
             /* Pantalla de descripción */
             <motion.div
               key="description"
@@ -148,7 +117,7 @@ const SecretGallery = ({ onClose }: SecretGalleryProps) => {
                       ease: "easeInOut",
                     }}
                   >
-                    <Gem className="w-10 h-10 text-yellow-400" />
+                    <img src={logoSymbolBordeClaro} alt="Symbol" className="w-10 h-10" />
                   </motion.div>
                   <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif text-white editorial-spacing">
                     {t("gallery.title")}
@@ -164,7 +133,7 @@ const SecretGallery = ({ onClose }: SecretGalleryProps) => {
                       ease: "easeInOut",
                     }}
                   >
-                    <Gem className="w-10 h-10 text-yellow-400" />
+                    <img src={logoSymbolBordeClaro} alt="Symbol" className="w-10 h-10" />
                   </motion.div>
                 </div>
                 <p className="text-xl text-white/80 font-sans editorial-spacing mb-8">
@@ -188,77 +157,47 @@ const SecretGallery = ({ onClose }: SecretGalleryProps) => {
 
               {/* Botón */}
               <motion.button
-                onClick={() => setShowGallery(true)}
+                onClick={() => setShowVideo(true)}
                 className="inline-flex items-center gap-3 px-8 py-4 bg-white/10 hover:bg-white/20 text-white border-2 border-white/30 hover:border-white/50 transition-all duration-300 group"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Gem className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+                <Play className="w-5 h-5 group-hover:scale-110 transition-transform" />
                 <span className="font-sans uppercase tracking-widest text-sm">
-                  {t("gallery.cta")}
+                  Ver Video Exclusivo
                 </span>
               </motion.button>
             </motion.div>
           ) : (
-            /* Galería de fotos */
+            /* Video de YouTube */
             <motion.div
-              key="gallery"
+              key="video"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.5 }}
-              className="w-full h-full flex flex-col items-center justify-center gap-6"
+              className="w-full flex flex-col items-center justify-center gap-6 px-4 py-8"
             >
-              {/* Image container */}
-              <div className="relative w-full max-w-5xl flex-1 flex items-center justify-center">
-                {/* Navigation buttons */}
-                <button
-                  onClick={goToPrevious}
-                  className="absolute left-0 md:-left-16 z-50 p-3 text-white/90 hover:text-white hover:bg-white/10 transition-all rounded-full backdrop-blur-sm border border-white/20"
-                  aria-label="Previous image"
-                >
-                  <ChevronLeft size={32} />
-                </button>
-
-                <button
-                  onClick={goToNext}
-                  className="absolute right-0 md:-right-16 z-50 p-3 text-white/90 hover:text-white hover:bg-white/10 transition-all rounded-full backdrop-blur-sm border border-white/20"
-                  aria-label="Next image"
-                >
-                  <ChevronRight size={32} />
-                </button>
-
-                {/* Image with animation */}
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={currentIndex}
-                    initial={{ opacity: 0, scale: 0.9, rotateY: -10 }}
-                    animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-                    exit={{ opacity: 0, scale: 0.9, rotateY: 10 }}
-                    transition={{ duration: 0.5, ease: "easeOut" }}
-                    className="relative w-full h-full flex items-center justify-center"
-                  >
-                    <div className="relative max-w-full max-h-full">
-                      {/* Glow effect */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/15 via-amber-500/15 to-orange-500/15 blur-3xl -z-10" />
-                      
-                      <img
-                        src={secretImages[currentIndex].src}
-                        alt={secretImages[currentIndex].alt}
-                        className="max-w-full max-h-[60vh] md:max-h-[70vh] object-contain shadow-2xl"
-                      />
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
+              {/* Video container */}
+              <div className="relative w-full max-w-4xl" style={{ aspectRatio: '9/16', maxHeight: '70vh' }}>
+                {/* Glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/20 via-amber-500/20 to-orange-500/20 blur-3xl -z-10" />
+                
+                {/* YouTube iframe */}
+                <iframe
+                  className="w-full h-full rounded-lg shadow-2xl"
+                  src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&rel=0`}
+                  title="Video Exclusivo"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
               </div>
 
-              {/* Counter */}
+              {/* Info badge */}
               <div className="inline-flex items-center gap-3 bg-black/50 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20">
-                <span className="text-white/60 text-sm font-sans">
-                  {t("gallery.image")}
-                </span>
-                <span className="text-white text-lg font-serif">
-                  {currentIndex + 1} / {secretImages.length}
+                <img src={logoSymbolBorde} alt="Symbol" className="w-4 h-4" />
+                <span className="text-white/90 text-sm font-sans uppercase tracking-widest">
+                  Contenido Exclusivo Desbloqueado
                 </span>
               </div>
             </motion.div>

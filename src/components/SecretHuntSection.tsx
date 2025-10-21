@@ -1,10 +1,12 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useClueHunt } from "@/hooks/useClueHunt";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Gem, Lock, Unlock, Eye } from "lucide-react";
+import { Lock, Unlock, Eye } from "lucide-react";
 import { useState } from "react";
 import SecretGallery from "./SecretGallery";
 import logoSymbol from "@/assets/Logo/logo-symbol.png";
+import logoSymbolBorde from "@/assets/Logo/logo-simbolo-borde.png";
+import logoSymbolBordeClaro from "@/assets/Logo/logo-simbolo-borde-claro.png";
 
 const SecretHuntSection = () => {
   const { t } = useLanguage();
@@ -55,20 +57,21 @@ const SecretHuntSection = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <motion.div
-              className="inline-block mb-6"
-              animate={{
-                y: [0, -8, 0],
-                rotate: [0, 5, -5, 0],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            >
-              <Gem className="w-12 h-12 text-secondary mx-auto" strokeWidth={1} />
-            </motion.div>
+            <div className="flex justify-center mb-6">
+              <motion.div
+                animate={{
+                  scale: [1, 1.15, 1],
+                  y: [0, -5, 0],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                <img src={logoSymbolBorde} alt="Symbol" className="w-12 h-12 opacity-80" />
+              </motion.div>
+            </div>
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif font-light mb-8 editorial-spacing">
               {t("secret.title")}
             </h2>
@@ -83,7 +86,7 @@ const SecretHuntSection = () => {
             >
               <div className="max-w-3xl mx-auto px-6 py-8 bg-foreground/5 border-l-2 border-secondary relative">
                 <div className="absolute -left-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-background border-2 border-secondary rounded-full flex items-center justify-center">
-                  <Gem className="w-3 h-3 text-secondary" />
+                  <img src={logoSymbolBorde} alt="Symbol" className="w-3 h-3" />
                 </div>
                 <p className="text-xl md:text-2xl font-serif font-light text-foreground italic leading-relaxed">
                   {t("secret.quote")}
@@ -201,7 +204,7 @@ const SecretHuntSection = () => {
                       onClick={() => setIsGalleryOpen(true)}
                       className="inline-flex items-center gap-3 px-8 py-4 bg-foreground text-background hover:bg-foreground/90 transition-all duration-300 group"
                     >
-                      <Gem className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+                      <img src={logoSymbolBordeClaro} alt="Symbol" className="w-5 h-5 group-hover:rotate-12 transition-transform" />
                       <span className="font-sans uppercase tracking-widest text-sm">
                         {t("secret.unlock")}
                       </span>
@@ -252,7 +255,7 @@ const SecretHuntSection = () => {
 
                     {/* Hint */}
                     <div className="flex items-start gap-3 p-4 bg-foreground/5 rounded-lg">
-                      <Gem className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
+                      <img src={logoSymbolBorde} alt="Symbol" className="w-5 h-5 flex-shrink-0 mt-0.5 opacity-80" />
                       <div>
                         <p className="text-xs uppercase tracking-widest font-sans text-secondary mb-1">
                           Pista

@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Instagram, Linkedin } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { toast } from "sonner";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const { t } = useLanguage();
@@ -14,14 +15,50 @@ const Contact = () => {
     email: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // UI only - no actual sending
-    toast.success("Mensaje recibido. Me pondré en contacto pronto.", {
-      description: "Gracias por tu interés en colaborar",
-    });
-    setFormData({ name: "", email: "", message: "" });
+    setIsSubmitting(true);
+
+    try {
+      // Configuración de EmailJS
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      // Verificar que las variables de entorno estén configuradas
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error("EmailJS no está configurado correctamente");
+      }
+
+      // Enviar email usando EmailJS
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_email: "catalinaaroca@gmail.com",
+        },
+        publicKey
+      );
+
+      toast.success("¡Mensaje enviado con éxito!", {
+        description: "Me pondré en contacto contigo pronto.",
+      });
+      
+      // Limpiar formulario
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("Error al enviar el mensaje:", error);
+      toast.error("Error al enviar el mensaje", {
+        description: "Por favor, intenta nuevamente o contáctame directamente por email.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -99,9 +136,10 @@ const Contact = () => {
 
               <Button
                 type="submit"
-                className="w-full bg-foreground text-background hover:bg-foreground/90 font-sans py-6 text-sm uppercase tracking-widest transition-all duration-300 hover:tracking-wider"
+                disabled={isSubmitting}
+                className="w-full bg-foreground text-background hover:bg-foreground/90 font-sans py-6 text-sm uppercase tracking-widest transition-all duration-300 hover:tracking-wider disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Enviar mensaje
+                {isSubmitting ? "Enviando..." : "Enviar mensaje"}
               </Button>
             </form>
           </motion.div>
@@ -120,11 +158,11 @@ const Contact = () => {
                 {t("contact.email")}
               </h3>
               <a 
-                href="mailto:catalina@aroca.com" 
+                href="mailto:catalinaaroca@gmail.com" 
                 className="text-2xl md:text-3xl font-serif hover:text-secondary transition-colors duration-300 flex items-center gap-3 group"
               >
                 <Mail className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
-                catalina@aroca.com
+                catalinaaroca@gmail.com
               </a>
             </div>
 
@@ -135,16 +173,16 @@ const Contact = () => {
               </h3>
               <div className="space-y-4">
                 <a 
-                  href="https://instagram.com/catalinaaroca" 
+                  href="https://www.instagram.com/cata_aroca?igsh=MXhhYmZvajg5aGEyMg%3D%3D&utm_source=qr" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 text-lg font-sans hover:text-secondary transition-colors duration-300 group"
                 >
                   <Instagram className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                  @catalinaaroca
+                  @cata_aroca
                 </a>
                 <a 
-                  href="https://linkedin.com/in/catalinaaroca" 
+                  href="https://www.linkedin.com/in/catalina-aroca-0458ab1b3?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 text-lg font-sans hover:text-secondary transition-colors duration-300 group"

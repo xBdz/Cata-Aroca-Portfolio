@@ -1,6 +1,6 @@
-import { Gem } from "lucide-react";
 import { useClueHunt } from "@/hooks/useClueHunt";
 import { motion, AnimatePresence } from "framer-motion";
+import logoSymbolBordeClaro from "@/assets/Logo/logo-simbolo-borde-claro.png";
 
 interface ClueHuntIndicatorProps {
   onShowGallery: () => void;
@@ -43,10 +43,12 @@ const ClueHuntIndicator = ({ onShowGallery }: ClueHuntIndicatorProps) => {
               ease: "easeInOut",
             }}
           >
-            <Gem 
+            <img 
+              src={logoSymbolBordeClaro}
+              alt="Symbol"
               className={`w-5 h-5 ${
-                isGalleryUnlocked ? 'text-background' : 'text-background/70'
-              }`} 
+                isGalleryUnlocked ? 'opacity-100' : 'opacity-70'
+              }`}
             />
           </motion.div>
 

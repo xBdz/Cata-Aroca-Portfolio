@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import logoCatalina from "@/assets/Logo/logo-catalina.png";
 import logoAroca from "@/assets/Logo/logo-aroca.png";
 import logoSymbol from "@/assets/Logo/logo-symbol.png";
+import logoSymbolBorde from "@/assets/Logo/logo-simbolo-borde.png";
 import { useClueHunt } from "@/hooks/useClueHunt";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -237,10 +238,9 @@ const Hero = () => {
               {/* Difuminado colorido de fondo */}
               <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/30 via-amber-400/30 to-orange-400/30 blur-xl rounded-full scale-150" />
               <img
-                src={logoSymbol}
+                src={logoSymbolBorde}
                 alt="Hidden symbol"
-                className="relative w-8 h-8 opacity-75 brightness-110 saturate-150"
-                style={{ filter: 'hue-rotate(20deg)' }}
+                className="relative w-8 h-8 opacity-75"
               />
             </div>
           </motion.button>

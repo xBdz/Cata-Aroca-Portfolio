@@ -2,11 +2,14 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { t } = useLanguage();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,21 +19,40 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-      setIsMobileMenuOpen(false);
+  const handleNavigation = (item: typeof navItems[0]) => {
+    setIsMobileMenuOpen(false);
+    
+    if (item.isRoute) {
+      // Navegar a ruta separada
+      navigate(item.href);
+    } else {
+      // Si estamos en una página diferente, primero ir al home
+      if (location.pathname !== "/") {
+        navigate("/");
+        // Esperar a que cargue y luego hacer scroll
+        setTimeout(() => {
+          const element = document.getElementById(item.href.replace("#", ""));
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }, 100);
+      } else {
+        // Scroll normal en la misma página
+        const element = document.getElementById(item.href.replace("#", ""));
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }
     }
   };
 
   const navItems = [
-    { name: t("nav.portfolio"), href: "#portfolio" },
-    { name: t("nav.libros"), href: "#libros-tendencia" },
-    { name: t("nav.films"), href: "#fashion-films" },
-    { name: t("nav.tif"), href: "#tif" },
-    { name: t("nav.about"), href: "#about" },
-    { name: t("nav.contact"), href: "#contact" },
+    { name: t("nav.portfolio"), href: "#portfolio", isRoute: false },
+    { name: t("nav.libros"), href: "/libros-tendencia", isRoute: true },
+    { name: t("nav.films"), href: "#fashion-films", isRoute: false },
+    { name: t("nav.tif"), href: "/tif", isRoute: true },
+    { name: t("nav.about"), href: "#about", isRoute: false },
+    { name: t("nav.contact"), href: "#contact", isRoute: false },
   ];
 
   return (
@@ -47,7 +69,7 @@ const Navigation = () => {
           {navItems.map((item, index) => (
             <button
               key={index}
-              onClick={() => scrollToSection(item.href.replace("#", ""))}
+              onClick={() => handleNavigation(item)}
               className="text-sm uppercase tracking-widest font-sans text-secondary hover:text-foreground transition-colors duration-300 relative group"
             >
               {item.name}
@@ -73,7 +95,7 @@ const Navigation = () => {
             {navItems.map((item, index) => (
               <button
                 key={index}
-                onClick={() => scrollToSection(item.href.replace("#", ""))}
+                onClick={() => handleNavigation(item)}
                 className="block w-full text-left text-xs uppercase tracking-widest font-sans text-secondary hover:text-foreground transition-colors"
               >
                 {item.name}

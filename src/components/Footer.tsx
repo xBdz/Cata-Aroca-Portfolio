@@ -65,16 +65,16 @@ const Footer = () => {
             </h4>
             <div className="space-y-4 mb-6">
               <a 
-                href="mailto:catalina@aroca.com" 
+                href="mailto:catalinaaroca@gmail.com" 
                 className="flex items-center gap-2 text-sm font-sans text-background/80 hover:text-background transition-colors group"
               >
                 <Mail className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                catalina@aroca.com
+                catalinaaroca@gmail.com
               </a>
             </div>
             <div className="flex items-center gap-4">
               <a
-                href="https://instagram.com/catalinaaroca"
+                href="https://www.instagram.com/cata_aroca?igsh=MXhhYmZvajg5aGEyMg%3D%3D&utm_source=qr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-background/70 hover:text-background transition-colors"
@@ -83,7 +83,7 @@ const Footer = () => {
                 <Instagram size={20} />
               </a>
               <a
-                href="https://linkedin.com/in/catalinaaroca"
+                href="https://www.linkedin.com/in/catalina-aroca-0458ab1b3?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-background/70 hover:text-background transition-colors"

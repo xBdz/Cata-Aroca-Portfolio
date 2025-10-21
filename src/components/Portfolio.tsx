@@ -4,7 +4,9 @@ import { Plus, X } from "lucide-react";
 import ImageGallery from "./ImageGallery";
 import { useClueHunt } from "@/hooks/useClueHunt";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useNavigate } from "react-router-dom";
 import logoSymbol from "@/assets/Logo/logo-symbol.png";
+import logoSymbolBorde from "@/assets/Logo/logo-simbolo-borde.png";
 
 // Importar imágenes de portada
 import portadaEstilismo from "@/assets/Estilismo/portada-estilismo.png";
@@ -140,16 +142,14 @@ const portfolioCategories = [
 const Portfolio = () => {
   const { t } = useLanguage();
   const { findClue, foundClues } = useClueHunt();
+  const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState<typeof portfolioCategories[number] | null>(null);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
 
   const handleCategoryClick = (category: typeof portfolioCategories[number]) => {
     if (category.isLibros) {
-      // Scroll a la sección de libros de tendencia
-      const element = document.getElementById("libros-tendencia");
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
+      // Navegar a la página de libros de tendencia
+      navigate("/libros-tendencia");
     } else if (category.isVideos) {
       // Scroll a la sección de fashion films
       const element = document.getElementById("fashion-films");
@@ -183,7 +183,7 @@ const Portfolio = () => {
           {!foundClues.includes("portfolio") && (
             <motion.button
               onClick={() => findClue("portfolio")}
-              className="absolute top-4 right-4 focus:outline-none group cursor-pointer"
+              className="absolute top-22 right-98 focus:outline-none group cursor-pointer"
               aria-label="Símbolo oculto"
               animate={{
                 opacity: [0.6, 0.85, 0.6],
@@ -200,10 +200,9 @@ const Portfolio = () => {
                 {/* Difuminado colorido de fondo */}
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-400/30 via-cyan-400/30 to-teal-400/30 blur-xl rounded-full scale-150" />
                 <img
-                  src={logoSymbol}
+                  src={logoSymbolBorde}
                   alt="Hidden symbol"
-                  className="relative w-8 h-8 opacity-75 brightness-110 saturate-150"
-                  style={{ filter: 'hue-rotate(180deg)' }}
+                  className="relative w-8 h-8 opacity-75"
                 />
               </div>
             </motion.button>

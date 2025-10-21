@@ -3,6 +3,7 @@ import { useClueHunt } from "@/hooks/useClueHunt";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
 import logoSymbol from "@/assets/Logo/logo-symbol.png";
+import logoSymbolBorde from "@/assets/Logo/logo-simbolo-borde.png";
 
 const About = () => {
   const { t } = useLanguage();
@@ -45,7 +46,7 @@ const About = () => {
             {!foundClues.includes("about") && (
               <motion.button
                 onClick={() => findClue("about")}
-                className="absolute top-4 right-10 focus:outline-none group cursor-pointer"
+                className="absolute right-10 focus:outline-none group cursor-pointer"
                 aria-label="Símbolo oculto"
                 animate={{
                   opacity: [0.6, 0.85, 0.6],
@@ -62,10 +63,9 @@ const About = () => {
                   {/* Difuminado colorido de fondo */}
                   <div className="absolute inset-0 bg-gradient-to-br from-pink-400/30 via-rose-400/30 to-purple-400/30 blur-xl rounded-full scale-150" />
                   <img
-                    src={logoSymbol}
+                    src={logoSymbolBorde}
                     alt="Hidden symbol"
-                    className="relative w-8 h-8 opacity-75 brightness-110 saturate-150"
-                    style={{ filter: 'hue-rotate(300deg)' }}
+                    className="relative w-8 h-8 opacity-75"
                   />
                 </div>
               </motion.button>
