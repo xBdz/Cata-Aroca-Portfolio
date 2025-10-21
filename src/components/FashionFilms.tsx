@@ -9,28 +9,28 @@ const fashionFilms = [
     title: "Confesionario del futuro",
     description: "El film aborda cómo, en un contexto de crisis social, económica y emocional, la Esperanza Cívica puede surgir como una fuerza transformadora frente a la rabia colectiva y la pérdida de sentido.",
     youtubeId: "vkuuPaTl5KA",
-    thumbnail: `https://img.youtube.com/vi/vkuuPaTl5KA/maxresdefault.jpg`,
+    thumbnail: `https://img.youtube.com/vi/vkuuPaTl5KA/hqdefault.jpg`,
   },
   {
     id: 2,
     title: "Fashion Film Prune",
     description: "En el proyecto plasmamos una experiencia inmersiva que fusiona la realidad física con la virtualidad digital, a su vez la idea es promover la marca.",
     youtubeId: "Qp8sE9deup4",
-    thumbnail: `https://img.youtube.com/vi/Qp8sE9deup4/maxresdefault.jpg`,
+    thumbnail: `https://img.youtube.com/vi/Qp8sE9deup4/hqdefault.jpg`,
   },
   {
     id: 3,
     title: "Narrativa conceptual",
     description: "En este film plasmamos a partir de un plano secuencia la relación entre una niña y su oso de peluche, la idea es reflejar como ese lazo se va desvirtuando a partir de estímulos que persuaden por parte del oso a la niña.",
     youtubeId: "d9RZGL7Tx1g",
-    thumbnail: `https://img.youtube.com/vi/d9RZGL7Tx1g/maxresdefault.jpg`,
+    thumbnail: `https://img.youtube.com/vi/d9RZGL7Tx1g/hqdefault.jpg`,
   },
   {
     id: 4,
     title: "Mirtha Legrand Film",
     description: "Este video es un corto en el cual se presenta un almuerzo con la Mirtha actual junto a cuatro versiones de sí misma de diferentes épocas. Cada una compartirá su recorrido profesional vinculado al contexto del entretenimiento y los acontecimientos socioculturales del país en ese momento.",
     youtubeId: "dJCfJwmVv5o",
-    thumbnail: `https://img.youtube.com/vi/dJCfJwmVv5o/maxresdefault.jpg`,
+    thumbnail: `https://img.youtube.com/vi/dJCfJwmVv5o/hqdefault.jpg`,
   },
 ];
 

@@ -7,6 +7,7 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import Index from "./pages/Index";
 import LibrosTendenciaPage from "./pages/LibrosTendenciaPage";
 import TIFPage from "./pages/TIFPage";
+import FashionFilmsPage from "./pages/FashionFilmsPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/libros-tendencia" element={<LibrosTendenciaPage />} />
             <Route path="/tif" element={<TIFPage />} />
+            <Route path="/fashion-films" element={<FashionFilmsPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -49,7 +49,7 @@ const Navigation = () => {
   const navItems = [
     { name: t("nav.portfolio"), href: "#portfolio", isRoute: false },
     { name: t("nav.libros"), href: "/libros-tendencia", isRoute: true },
-    { name: t("nav.films"), href: "#fashion-films", isRoute: false },
+    { name: t("nav.films"), href: "/fashion-films", isRoute: true },
     { name: t("nav.tif"), href: "/tif", isRoute: true },
     { name: t("nav.about"), href: "#about", isRoute: false },
     { name: t("nav.contact"), href: "#contact", isRoute: false },

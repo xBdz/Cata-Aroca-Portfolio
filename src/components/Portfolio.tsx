@@ -135,7 +135,7 @@ const portfolioCategories = [
     title: "Fashion films",
     coverImage: portadaFilms,
     description: "Dirección creativa y estilismo para narrativas visuales en movimiento. Moda que cobra vida a través del storytelling audiovisual.",
-    isVideos: true, // Flag especial para videos
+    isFilms: true, // Flag especial para films
   },
 ];
 
@@ -150,12 +150,9 @@ const Portfolio = () => {
     if (category.isLibros) {
       // Navegar a la página de libros de tendencia
       navigate("/libros-tendencia");
-    } else if (category.isVideos) {
-      // Scroll a la sección de fashion films
-      const element = document.getElementById("fashion-films");
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
+    } else if (category.isFilms) {
+      // Navegar a la página de fashion films
+      navigate("/fashion-films");
     } else if (category.images) {
       setSelectedCategory(category);
       setIsGalleryOpen(true);

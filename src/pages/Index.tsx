@@ -3,7 +3,6 @@ import { AnimatePresence } from "framer-motion";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import Portfolio from "@/components/Portfolio";
-import FashionFilms from "@/components/FashionFilms";
 import SecretHuntSection from "@/components/SecretHuntSection";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
@@ -37,8 +36,6 @@ const Index = () => {
         <SectionDivider variant="line" />
         <Portfolio />
         <SectionDivider variant="symbol" />
-        <FashionFilms />
-        <SectionDivider variant="line" />
         <SecretHuntSection />
         <SectionDivider />
         <About />

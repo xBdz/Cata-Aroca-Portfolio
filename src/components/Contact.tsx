@@ -27,9 +27,21 @@ const Contact = () => {
       const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
       const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
+      // Debug: Log para verificar variables (remover en producción)
+      console.log("EmailJS Config:", {
+        hasServiceId: !!serviceId,
+        hasTemplateId: !!templateId,
+        hasPublicKey: !!publicKey,
+        serviceId: serviceId ? `${serviceId.substring(0, 8)}...` : 'undefined',
+      });
+
       // Verificar que las variables de entorno estén configuradas
       if (!serviceId || !templateId || !publicKey) {
-        throw new Error("EmailJS no está configurado correctamente");
+        toast.error("Configuración incompleta", {
+          description: "Por favor, contáctame directamente a catalinaaroca@gmail.com",
+        });
+        setFormData({ name: "", email: "", message: "" });
+        return;
       }
 
       // Enviar email usando EmailJS

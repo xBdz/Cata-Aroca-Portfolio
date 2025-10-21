@@ -14,4 +14,17 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    chunkSizeWarningLimit: 1000, // Aumentar límite a 1000kb
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Separar vendor libraries en chunks
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          'framer-motion': ['framer-motion'],
+          'lucide': ['lucide-react'],
+        },
+      },
+    },
+  },
 });
