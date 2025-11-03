@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import LibrosTendencia from "@/components/LibrosTendencia";
 import Footer from "@/components/Footer";
@@ -6,9 +6,15 @@ import ScrollToTop from "@/components/ScrollToTop";
 import ScrollProgress from "@/components/ScrollProgress";
 import SecretGallery from "@/components/SecretGallery";
 import ClueHuntIndicator from "@/components/ClueHuntIndicator";
+import { useClueHunt } from "@/hooks/useClueHunt";
 
 const LibrosTendenciaPage = () => {
+  const { isGalleryUnlocked } = useClueHunt();
   const [showGallery, setShowGallery] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="min-h-screen bg-background">
@@ -19,7 +25,9 @@ const LibrosTendenciaPage = () => {
       </main>
       <Footer />
       
-      <ClueHuntIndicator onShowGallery={() => setShowGallery(true)} />
+      {isGalleryUnlocked && (
+        <ClueHuntIndicator onShowGallery={() => setShowGallery(true)} />
+      )}
       <ScrollToTop />
       
       {showGallery && <SecretGallery onClose={() => setShowGallery(false)} />}

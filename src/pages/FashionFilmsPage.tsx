@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import FashionFilms from "@/components/FashionFilms";
 import Footer from "@/components/Footer";
@@ -7,7 +7,6 @@ import ScrollProgress from "@/components/ScrollProgress";
 import ClueHuntIndicator from "@/components/ClueHuntIndicator";
 import SecretGallery from "@/components/SecretGallery";
 import { useClueHunt } from "@/hooks/useClueHunt";
-import { useState } from "react";
 
 const FashionFilmsPage = () => {
   const { isGalleryUnlocked } = useClueHunt();

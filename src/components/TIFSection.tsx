@@ -5,7 +5,7 @@ import ImageGallery from "./ImageGallery";
 import { Eye, Grid3x3, BookOpen } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-// Importar imágenes de TIF
+// Importar imágenes de Investigaciones
 import portadaTIF from "@/assets/TIFF/portada-TIFF.png";
 import tif46 from "@/assets/TIFF/46.png";
 import tif47 from "@/assets/TIFF/47.png";
@@ -18,17 +18,17 @@ import tif53 from "@/assets/TIFF/53.png";
 import tif54 from "@/assets/TIFF/54.png";
 import tif55 from "@/assets/TIFF/55.png";
 
-const tifImages = [
-  { src: tif46, alt: "TIF Imagen 1" },
-  { src: tif47, alt: "TIF Imagen 2" },
-  { src: tif48, alt: "TIF Imagen 3" },
-  { src: tif49, alt: "TIF Imagen 4" },
-  { src: tif50, alt: "TIF Imagen 5" },
-  { src: tif51, alt: "TIF Imagen 6" },
-  { src: tif52, alt: "TIF Imagen 7" },
-  { src: tif53, alt: "TIF Imagen 8" },
-  { src: tif54, alt: "TIF Imagen 9" },
-  { src: tif55, alt: "TIF Imagen 10" },
+const investigacionesImages = [
+  { src: tif46, alt: "Investigación 1" },
+  { src: tif47, alt: "Investigación 2" },
+  { src: tif48, alt: "Investigación 3" },
+  { src: tif49, alt: "Investigación 4" },
+  { src: tif50, alt: "Investigación 5" },
+  { src: tif51, alt: "Investigación 6" },
+  { src: tif52, alt: "Investigación 7" },
+  { src: tif53, alt: "Investigación 8" },
+  { src: tif54, alt: "Investigación 9" },
+  { src: tif55, alt: "Investigación 10" },
 ];
 
 const TIFSection = () => {
@@ -36,7 +36,7 @@ const TIFSection = () => {
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
 
   return (
-    <section id="tif" className="py-20 px-6 bg-primary/20 relative overflow-hidden">
+    <section id="investigaciones" className="py-20 px-6 bg-primary/20 relative overflow-hidden">
       {/* Background decorativo */}
       <div className="absolute inset-0 opacity-5">
         <motion.img
@@ -59,24 +59,17 @@ const TIFSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <motion.img
-            src={logoSymbol}
-            alt="TIF Symbol"
-            className="h-32 md:h-40 w-auto mx-auto mb-10 opacity-60"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 0.6, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          />
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif font-light mb-4 editorial-spacing">
-            {t("tif.title")}
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif font-light mb-6 editorial-spacing">
+            Investigaciones
           </h2>
-          <p className="text-lg md:text-xl text-secondary/80 font-sans mb-6 editorial-spacing">
-            {t("tif.subtitle")}
+          <p className="text-xl md:text-2xl text-secondary font-sans max-w-3xl mx-auto editorial-spacing leading-relaxed mb-8">
+            Análisis profundo de tendencias y cultura visual
           </p>
-          <p className="text-base md:text-lg text-secondary font-sans max-w-2xl mx-auto editorial-spacing leading-relaxed mb-8">
-            {t("tif.description")}
-          </p>
+          <div className="max-w-4xl mx-auto">
+            <p className="text-lg text-secondary/90 font-sans editorial-spacing leading-relaxed">
+              Proyectos de investigación que exploran la intersección entre moda, sociedad y cultura contemporánea. Cada trabajo representa un análisis riguroso de fenómenos visuales, tendencias emergentes y su impacto en el panorama creativo actual.
+            </p>
+          </div>
           <div className="w-24 h-px bg-foreground/20 mx-auto"></div>
         </motion.div>
 
@@ -145,7 +138,7 @@ const TIFSection = () => {
                   </p>
                   <span className="font-sans uppercase tracking-widest text-sm">{t("tif.cta")}</span>
                   <p className="text-secondary text-sm uppercase tracking-widest">
-                    {tifImages.length} imágenes
+                    {investigacionesImages.length} imágenes
                   </p>
                 </div>
               </div>
@@ -155,7 +148,6 @@ const TIFSection = () => {
           {/* Caption */}
           <div className="mt-8 text-center">
             <p className="text-sm text-secondary/70 font-sans italic leading-relaxed max-w-2xl mx-auto">
-              Este proyecto integra elementos de todas las categorías del portfolio en una obra completa que representa la culminación de mi formación y visión creativa.
             </p>
           </div>
         </motion.div>
@@ -163,7 +155,7 @@ const TIFSection = () => {
 
       {/* Gallery Modal */}
       <ImageGallery
-        images={tifImages}
+        images={investigacionesImages}
         isOpen={isGalleryOpen}
         onClose={() => setIsGalleryOpen(false)}
       />

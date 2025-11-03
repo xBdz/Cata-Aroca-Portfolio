@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { Download, FileText } from "lucide-react";
+import { Download, FileText, Eye } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useNavigate } from "react-router-dom";
 
 // Importar portadas de libros de tendencia
 import portadaAnzuelo from "@/assets/Libros de tendencia/Anzuelo-emocional-portada.png";
@@ -13,6 +14,7 @@ const trendBooks = [
     title: "Anzuelo Emocional",
     description: "Investigación sobre estrategias emocionales en la construcción de narrativas de moda y su impacto en el consumidor contemporáneo.",
     pdfPath: "/pdfs/Anzuelo-emocional.pdf",
+    mockupPath: "/libros-tendencia/anzuelo-emocional",
     size: "10 MB",
     coverImage: portadaAnzuelo,
     year: "2024",
@@ -22,6 +24,7 @@ const trendBooks = [
     title: "La Industria Artesanal",
     description: "Análisis crítico de las dinámicas laborales en la producción artesanal de moda y sus implicaciones éticas en la industria actual.",
     pdfPath: "/pdfs/La industria artesanal, un espacio para la explotación.pdf",
+    mockupPath: "/libros-tendencia/industria-artesanal",
     size: "85 MB",
     coverImage: portadaIndustria,
     year: "2024",
@@ -31,6 +34,7 @@ const trendBooks = [
     title: "Segmento Preadolescente",
     description: "Estudio de tendencias y comportamientos de consumo en el mercado preadolescente, explorando identidad y pertenencia a través de la moda.",
     pdfPath: "/pdfs/Segemento-preadolescente.pdf",
+    mockupPath: "/libros-tendencia/segmento-preadolescente",
     size: "65 MB",
     coverImage: portadaSegmento,
     year: "2024",
@@ -39,6 +43,7 @@ const trendBooks = [
 
 const LibrosTendencia = () => {
   const { t } = useLanguage();
+  const navigate = useNavigate();
   const downloadPDF = (pdfPath: string, title: string) => {
     // Crear elemento <a> temporal para descargar
     const link = document.createElement("a");
@@ -82,7 +87,10 @@ const LibrosTendencia = () => {
               className="group"
             >
               {/* Portada del libro */}
-              <div className="relative aspect-[3/4] overflow-hidden bg-card mb-6 shadow-lg">
+              <div 
+                className="relative aspect-[3/4] overflow-hidden bg-card mb-6 shadow-lg cursor-pointer"
+                onClick={() => navigate(book.mockupPath)}
+              >
                 <img
                   src={book.coverImage}
                   alt={book.title}
@@ -91,8 +99,8 @@ const LibrosTendencia = () => {
                 />
                 {/* Overlay con gradiente */}
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col items-center justify-end p-8">
-                  <FileText size={48} className="text-background mb-4" strokeWidth={1.5} />
-                  <p className="text-background font-sans text-sm uppercase tracking-widest">Disponible para descarga</p>
+                  <Eye size={48} className="text-background mb-4" strokeWidth={1.5} />
+                  <p className="text-background font-sans text-sm uppercase tracking-widest">Ver Vista Previa</p>
                 </div>
               </div>
 

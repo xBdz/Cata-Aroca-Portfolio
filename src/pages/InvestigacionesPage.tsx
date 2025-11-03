@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import TIFSection from "@/components/TIFSection";
 import Footer from "@/components/Footer";
@@ -7,8 +7,12 @@ import ScrollProgress from "@/components/ScrollProgress";
 import SecretGallery from "@/components/SecretGallery";
 import ClueHuntIndicator from "@/components/ClueHuntIndicator";
 
-const TIFPage = () => {
+const InvestigacionesPage = () => {
   const [showGallery, setShowGallery] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="min-h-screen bg-background">
@@ -27,4 +31,4 @@ const TIFPage = () => {
   );
 };
 
-export default TIFPage;
+export default InvestigacionesPage;

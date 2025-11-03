@@ -198,24 +198,9 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-center text-base md:text-lg lg:text-xl text-secondary font-sans max-w-3xl mx-auto editorial-spacing mb-12"
         >
-          {t("hero.description")}
+          Creando narrativas visuales a través del estilismo editorial y la{" "}
+          <span className="whitespace-nowrap">dirección de moda</span>
         </motion.p>
-
-        {/* CTA Button */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="flex justify-center"
-        >
-          <button
-            onClick={scrollToPortfolio}
-            className="group inline-flex items-center gap-2 px-8 py-4 bg-accent text-accent-foreground hover:bg-accent/90 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
-          >
-            <span className="font-sans editorial-spacing text-sm md:text-base">{t("hero.cta")}</span>
-            <ChevronDown size={20} className="group-hover:translate-y-1 transition-transform" />
-          </button>
-        </motion.div>
 
         {/* Pista oculta - Símbolo */}
         {!foundClues.includes("hero") && (

@@ -72,24 +72,24 @@ const Footer = () => {
                 catalinaaroca@gmail.com
               </a>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="space-y-3">
               <a
                 href="https://www.instagram.com/cata_aroca?igsh=MXhhYmZvajg5aGEyMg%3D%3D&utm_source=qr"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-background/70 hover:text-background transition-colors"
-                aria-label="Instagram"
+                className="flex items-center gap-3 text-sm font-sans text-background/80 hover:text-background transition-colors group"
               >
-                <Instagram size={20} />
+                <Instagram className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                @cata_aroca
               </a>
               <a
                 href="https://www.linkedin.com/in/catalina-aroca-0458ab1b3?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-background/70 hover:text-background transition-colors"
-                aria-label="LinkedIn"
+                className="flex items-center gap-3 text-sm font-sans text-background/80 hover:text-background transition-colors group"
               >
-                <Linkedin size={20} />
+                <Linkedin className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                Catalina Aroca
               </a>
             </div>
           </div>

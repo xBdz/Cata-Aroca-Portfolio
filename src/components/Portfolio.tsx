@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Plus, X } from "lucide-react";
-import ImageGallery from "./ImageGallery";
 import { useClueHunt } from "@/hooks/useClueHunt";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useNavigate } from "react-router-dom";
@@ -144,18 +143,16 @@ const Portfolio = () => {
   const { findClue, foundClues } = useClueHunt();
   const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState<typeof portfolioCategories[number] | null>(null);
-  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
 
   const handleCategoryClick = (category: typeof portfolioCategories[number]) => {
-    if (category.isLibros) {
-      // Navegar a la página de libros de tendencia
+    if (category.id === "styling") {
+      navigate("/estilismo-editorial");
+    } else if (category.id === "conceptual") {
+      navigate("/proyectos-conceptuales");
+    } else if (category.isLibros) {
       navigate("/libros-tendencia");
     } else if (category.isFilms) {
-      // Navegar a la página de fashion films
       navigate("/fashion-films");
-    } else if (category.images) {
-      setSelectedCategory(category);
-      setIsGalleryOpen(true);
     }
   };
 
@@ -263,14 +260,6 @@ const Portfolio = () => {
         </div>
       </div>
 
-      {/* Gallery Modal */}
-      {selectedCategory && selectedCategory.images && (
-        <ImageGallery
-          images={selectedCategory.images}
-          isOpen={isGalleryOpen}
-          onClose={() => setIsGalleryOpen(false)}
-        />
-      )}
     </section>
   );
 };
