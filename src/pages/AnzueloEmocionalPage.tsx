@@ -6,6 +6,13 @@ import ScrollProgress from "@/components/ScrollProgress";
 import { Download } from "lucide-react";
 import { useEffect } from "react";
 
+// Importar imágenes
+import ae01 from "@/assets/Libros de tendencia/Anzuelo emocional/AE-01.jpeg";
+import ae02 from "@/assets/Libros de tendencia/Anzuelo emocional/AE-02.jpeg";
+import ae03 from "@/assets/Libros de tendencia/Anzuelo emocional/AE-03.jpeg";
+import ae04 from "@/assets/Libros de tendencia/Anzuelo emocional/AE-04.jpeg";
+import ae05 from "@/assets/Libros de tendencia/Anzuelo emocional/AE-05.jpeg";
+
 const AnzueloEmocionalPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -61,6 +68,26 @@ const AnzueloEmocionalPage = () => {
               </p>
             </div>
 
+            {/* Imagen 1 y 2 - Grid */}
+            <div className="grid md:grid-cols-2 gap-6">
+              <motion.img
+                src={ae01}
+                alt="Anzuelo Emocional 1"
+                className="w-full h-auto rounded-lg shadow-lg"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              />
+              <motion.img
+                src={ae02}
+                alt="Anzuelo Emocional 2"
+                className="w-full h-auto rounded-lg shadow-lg"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+              />
+            </div>
+
             <div className="w-24 h-px bg-foreground/20 mx-auto"></div>
 
             {/* Visual Description */}
@@ -68,9 +95,42 @@ const AnzueloEmocionalPage = () => {
               <p className="text-lg md:text-xl text-foreground/90 font-sans leading-relaxed editorial-spacing">
                 Visualmente, la tendencia se expresa con formas geométricas simples, superficies brillantes y colores saturados, generando escenarios inmersivos y teatrales donde el usuario es avatar y espectador.
               </p>
+            </div>
+
+            {/* Imagen 3 - Full width */}
+            <motion.img
+              src={ae03}
+              alt="Anzuelo Emocional 3"
+              className="w-full h-auto rounded-lg shadow-lg"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            />
+
+            <div className="space-y-6">
               <p className="text-lg md:text-xl text-foreground/90 font-sans leading-relaxed editorial-spacing">
                 El nuevo consumidor busca vivencias únicas más que objetos, inspirado por el pop, el diseño digital y el arte inmersivo: experiencias que duran solo un instante, pero se recuerdan como un sueño.
               </p>
+            </div>
+
+            {/* Imágenes 4 y 5 - Asimétrico */}
+            <div className="grid md:grid-cols-3 gap-6">
+              <motion.img
+                src={ae04}
+                alt="Anzuelo Emocional 4"
+                className="w-full h-auto rounded-lg shadow-lg md:col-span-2"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.7 }}
+              />
+              <motion.img
+                src={ae05}
+                alt="Anzuelo Emocional 5"
+                className="w-full h-auto rounded-lg shadow-lg"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+              />
             </div>
 
             <div className="w-24 h-px bg-foreground/20 mx-auto"></div>

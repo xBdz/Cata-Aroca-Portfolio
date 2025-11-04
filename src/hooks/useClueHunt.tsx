@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { toast } from "sonner";
 
-const CLUE_LOCATIONS = ["hero", "portfolio", "about"] as const;
+const CLUE_LOCATIONS = ["portfolio", "about", "contact"] as const;
 type ClueLocation = (typeof CLUE_LOCATIONS)[number];
 
 const STORAGE_KEY = "catalina-aroca-clues";
@@ -23,12 +23,12 @@ const getClueMessage = (clueNumber: number) => {
     case 2:
       return {
         title: "¡Segunda pista encontrada!",
-        description: "Tu ojo para los detalles es impecable. Una pista más y desbloquearás algo especial.",
+        description: "Excelente trabajo. Una pista más y desbloquearás algo especial.",
       };
     case 3:
       return {
-        title: "¡Tercera pista encontrada!",
-        description: "Has completado la búsqueda. Preparando algo exclusivo para ti...",
+        title: "¡Todas las pistas encontradas!",
+        description: "Has completado la búsqueda del tesoro. Desbloqueando galería secreta...",
       };
     default:
       return {

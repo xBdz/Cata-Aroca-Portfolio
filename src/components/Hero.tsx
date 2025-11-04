@@ -1,11 +1,9 @@
-import { useState, useEffect } from "react";
-import { Eye, ChevronDown } from "lucide-react";
+import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 import logoCatalina from "@/assets/Logo/logo-catalina.png";
 import logoAroca from "@/assets/Logo/logo-aroca.png";
 import logoSymbol from "@/assets/Logo/logo-symbol.png";
-import logoSymbolBorde from "@/assets/Logo/logo-simbolo-borde.png";
-import { useClueHunt } from "@/hooks/useClueHunt";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 // Frases que flotan en el fondo
@@ -89,7 +87,6 @@ const generateRandomPositions = () => {
 };
 
 const Hero = () => {
-  const { findClue, foundClues } = useClueHunt();
   const { t } = useLanguage();
   const [positions] = useState(() => generateRandomPositions());
 
@@ -158,7 +155,7 @@ const Hero = () => {
             <img
               src={logoCatalina}
               alt="Catalina"
-              className="h-28 md:h-36 lg:h-44 xl:h-48 w-auto"
+              className="h-26 md:h-36 lg:h-44 xl:h-52 w-auto"
             />
           </motion.div>
 
@@ -186,7 +183,7 @@ const Hero = () => {
             <img
               src={logoAroca}
               alt="Aroca"
-              className="h-28 md:h-36 lg:h-44 xl:h-48 w-auto"
+              className="h-28 md:h-36 lg:h-44 xl:h-52 w-auto"
             />
           </motion.div>
         </div>
@@ -202,34 +199,6 @@ const Hero = () => {
           <span className="whitespace-nowrap">dirección de moda</span>
         </motion.p>
 
-        {/* Pista oculta - Símbolo */}
-        {!foundClues.includes("hero") && (
-          <motion.button
-            onClick={() => findClue("hero")}
-            className="absolute bottom-8 right-8 focus:outline-none group cursor-pointer"
-            aria-label="Símbolo oculto"
-            animate={{
-              opacity: [0.6, 0.85, 0.6],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            whileHover={{ scale: 1.2, opacity: 1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <div className="relative">
-              {/* Difuminado colorido de fondo */}
-              <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/30 via-amber-400/30 to-orange-400/30 blur-xl rounded-full scale-150" />
-              <img
-                src={logoSymbolBorde}
-                alt="Hidden symbol"
-                className="relative w-8 h-8 opacity-75"
-              />
-            </div>
-          </motion.button>
-        )}
       </div>
 
       {/* Indicador de scroll */}

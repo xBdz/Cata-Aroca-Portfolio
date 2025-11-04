@@ -7,9 +7,12 @@ import { Mail, Phone, MapPin, Instagram, Linkedin } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { toast } from "sonner";
 import emailjs from "@emailjs/browser";
+import { useClueHunt } from "@/hooks/useClueHunt";
+import logoSymbolBorde from "@/assets/Logo/logo-simbolo-borde.png";
 
 const Contact = () => {
   const { t } = useLanguage();
+  const { findClue, foundClues } = useClueHunt();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -82,7 +85,7 @@ const Contact = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-20 relative"
         >
           <h2 className="text-6xl md:text-7xl lg:text-8xl font-serif font-light mb-8 editorial-spacing">
             {t("contact.title")}
@@ -90,6 +93,35 @@ const Contact = () => {
           <p className="text-xl md:text-2xl text-secondary font-sans max-w-3xl mx-auto editorial-spacing leading-relaxed">
             {t("contact.description")}
           </p>
+
+          {/* Logo de búsqueda del tesoro */}
+          {!foundClues.includes("contact") && (
+            <motion.button
+              onClick={() => findClue("contact")}
+              className="absolute top-4 right-4 md:top-8 md:right-8 focus:outline-none group cursor-pointer"
+              aria-label="Símbolo oculto"
+              animate={{
+                opacity: [0.6, 0.85, 0.6],
+              }}
+              transition={{
+                duration: 2.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              whileHover={{ scale: 1.2, opacity: 1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <div className="relative">
+                {/* Difuminado colorido de fondo */}
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-400/30 via-pink-400/30 to-rose-400/30 blur-xl rounded-full scale-150" />
+                <img
+                  src={logoSymbolBorde}
+                  alt="Hidden symbol"
+                  className="relative w-8 h-8 opacity-75"
+                />
+              </div>
+            </motion.button>
+          )}
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-16 lg:gap-24">

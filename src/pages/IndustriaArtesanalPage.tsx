@@ -6,6 +6,14 @@ import ScrollProgress from "@/components/ScrollProgress";
 import { Download } from "lucide-react";
 import { useEffect } from "react";
 
+// Importar imágenes
+import ia01 from "@/assets/Libros de tendencia/Industria artesanal/IA-01.jpeg";
+import ia02 from "@/assets/Libros de tendencia/Industria artesanal/IA-02.jpeg";
+import ia03 from "@/assets/Libros de tendencia/Industria artesanal/IA-03.jpeg";
+import ia04 from "@/assets/Libros de tendencia/Industria artesanal/IA-04.jpeg";
+import ia05 from "@/assets/Libros de tendencia/Industria artesanal/IA-05.jpeg";
+import ia06 from "@/assets/Libros de tendencia/Industria artesanal/IA-06.jpeg";
+
 const IndustriaArtesanalPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -67,6 +75,26 @@ const IndustriaArtesanalPage = () => {
               </p>
             </div>
 
+            {/* Imágenes 1 y 2 */}
+            <div className="grid md:grid-cols-2 gap-6">
+              <motion.img
+                src={ia01}
+                alt="Industria Artesanal 1"
+                className="w-full h-auto rounded-lg shadow-lg"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              />
+              <motion.img
+                src={ia02}
+                alt="Industria Artesanal 2"
+                className="w-full h-auto rounded-lg shadow-lg"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+              />
+            </div>
+
             <div className="w-24 h-px bg-foreground/20 mx-auto"></div>
 
             {/* Un nuevo ritual */}
@@ -79,6 +107,16 @@ const IndustriaArtesanalPage = () => {
                 Cada pieza es un acto de encuentro, donde la autenticidad reemplaza a lo industrial.
               </p>
             </div>
+
+            {/* Imagen 3 - Full width */}
+            <motion.img
+              src={ia03}
+              alt="Industria Artesanal 3"
+              className="w-full h-auto rounded-lg shadow-lg"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            />
 
             <div className="w-24 h-px bg-foreground/20 mx-auto"></div>
 
@@ -113,6 +151,26 @@ const IndustriaArtesanalPage = () => {
               </p>
             </div>
 
+            {/* Imágenes 4 y 5 - Asimétrico */}
+            <div className="grid md:grid-cols-3 gap-6">
+              <motion.img
+                src={ia04}
+                alt="Industria Artesanal 4"
+                className="w-full h-auto rounded-lg shadow-lg"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.7 }}
+              />
+              <motion.img
+                src={ia05}
+                alt="Industria Artesanal 5"
+                className="w-full h-auto rounded-lg shadow-lg md:col-span-2"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+              />
+            </div>
+
             <div className="w-24 h-px bg-foreground/20 mx-auto"></div>
 
             {/* Sostenibilidad */}
@@ -125,6 +183,16 @@ const IndustriaArtesanalPage = () => {
                 Un modelo circular y consciente, donde el valor nace del respeto por el entorno.
               </p>
             </div>
+
+            {/* Imagen 6 - Full width */}
+            <motion.img
+              src={ia06}
+              alt="Industria Artesanal 6"
+              className="w-full h-auto rounded-lg shadow-lg"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.9 }}
+            />
 
             <div className="w-24 h-px bg-foreground/20 mx-auto"></div>
 
